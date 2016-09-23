@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html ng-app="WebSpaApp">
+<head>
+    @Scripts.Render("~/bundles/angular")
+    @Styles.Render("~/Content/css")
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="container">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="#/">Home/debug</a></li>
+            <li role="presentation"><a href="#/ManageQuiz">ManageQuizPage</a></li>
+        </ul>
+    </div>
+
+
+    <ng-view></ng-view>
+</div>
+
+
+</body>
+</html>

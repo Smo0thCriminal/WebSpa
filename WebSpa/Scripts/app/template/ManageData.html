@@ -1,0 +1,94 @@
+﻿<div class="container">
+    <div ng-controller="ManageController" class="col-md-5">
+        <form name="myform">
+            <table class="table">
+                <tr>
+                    <td>Id :</td>
+                    <td>
+                        <input type="text" ng-model="QuizModel.Id" placeholder="Id" class='form-control' required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Question :</td>
+                    <td>
+                        <input type="text" ng-model="QuizModel.Question" placeholder="Question" class='form-control' required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>MaxPoints :</td>
+                    <td>
+                        <input type="text" ng-model="QuizModel.MaxPoints" placeholder="MaxPoints" class='form-control' required />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input class="btn-success" type="button" value="Save" id="btnsave" ng-disabled="isDisabledsave" ng-click="myform.$valid && saveQuiz()" />
+                        <input class="btn-default" type="button" value="Update" id="btnupdate" ng-disabled="isDisabledupdate" ng-click="myform.$valid && updateQuiz()" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <table>
+            <tr>
+                <th>Id</th>
+
+                <th>
+                    Question
+                </th>
+                <th>
+                    Points
+                </th>
+            </tr>
+            <tr ng-repeat="QuizModel in Quiz">
+                <td>{{QuizModel.Id}}</td>
+                <td>{{QuizModel.Question }}</td>
+                <td>{{QuizModel.MaxPoints }}</td>
+                <td>
+                    <a href="" ng-click="getQuiz(QuizModel)" title="Delete Record">Edit</a> |
+                    <a href="" ng-click="deleteQuiz(QuizModel)" title="Delete Record">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div ng-controller="LoginController" class="col-md-5">
+        <form name="loginForm">
+            <table class="table">
+                <tr>
+                    <td>FirstName :</td>
+                    <td>
+                        <input type="text" ng-model="PlayerModel.FirstName" placeholder="FirstName" class='form-control' required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>LastName :</td>
+                    <td>
+                        <input type="text" ng-model="QuizModel.LastName" placeholder="LastName" class='form-control' required />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" value="Save" id="btnsave" ng-disabled="isDisabledsave" ng-click="loginForm.$valid && savePlayer()" />
+                        <input type="button" value="Update" id="btnupdate" ng-disabled="isDisabledupdate" ng-click="loginForm.$valid && updatePlayer()" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <table>
+            <tr>
+                <th>FirstName</th>
+
+                <th>LastName</th>
+            </tr>
+            <tr ng-repeat="PlayerModel in Player">
+                <td>{{PlayerModel.FirstName}}</td>
+                <td>{{PlayerModel.LastName }}</td>
+                <td>
+                    <a href="" ng-click="getPlayer(PlayerModel)" title="Delete Record">Edit</a> |
+                    <a href="" ng-click="deletePlayer(PlayerModel)" title="Delete Record">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

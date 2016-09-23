@@ -1,0 +1,38 @@
+﻿<form name="loginForm">
+    <table class="table">
+        <tr>
+            <td>FirstName :</td>
+            <td>
+                <input type="text" ng-model="PlayerModel.FirstName" placeholder="Id" class='form-control' required />
+            </td>
+        </tr>
+        <tr>
+            <td>LastName :</td>
+            <td>
+                <input type="text" ng-model="QuizModel.LastName" placeholder="Question" class='form-control' required />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="button" value="Save" id="btnsave" ng-disabled="isDisabledsave" ng-click="loginForm.$valid && savePlayer()" />
+                <input type="button" value="Update" id="btnupdate" ng-disabled="isDisabledupdate" ng-click="loginForm.$valid && updatePlayer()" />
+            </td>
+        </tr>
+    </table>
+</form>
+<table>
+    <tr>
+        <th>FirstName</th>
+
+        <th>LastName</th>
+    </tr>
+    <tr ng-repeat="PlayerModel in Player">
+        <td>{{PlayerModel.FirstName}}</td>
+        <td>{{PlayerModel.LastName }}</td>
+        <td>
+            <a href="" ng-click="getPlayer(PlayerModel)" title="Delete Record">Edit</a> |
+            <a href="" ng-click="deletePlayer(PlayerModel)" title="Delete Record">Delete</a>
+        </td>
+    </tr>
+</table>
