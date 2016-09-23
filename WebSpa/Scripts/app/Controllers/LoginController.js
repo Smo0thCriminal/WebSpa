@@ -16,9 +16,10 @@ angular.controller('LoginController', function($scope, $http) {
         $http({
             method: 'POST',
             url: 'api/PlayerModels',
-            data: $scope.playerModel
-        }).success(function() {
-            $scope.playerModel = null;
+            data: $scope.PlayerModel
+        }).success(function () {
+            GetAllPlayers();
+            $scope.PlayerModel = null;
         }).error(function() {
             alert(data.errors);
         });
@@ -26,10 +27,10 @@ angular.controller('LoginController', function($scope, $http) {
     };
 
     //Get player by id to edit
-    $scope.getPlayer = function (playerModel) {
-        $http.get('api/PlayerModels/' + playerModel.Id)
+    $scope.getPlayer = function (PlayerModel) {
+        $http.get('api/PlayerModels/' + PlayerModel.Id)
         .success(function (data, status, headers, config) {
-            $scope.QuizModel = data;
+            $scope.PlayerModel = data;
             GetAllPlayers();
             $scope.isDisabledsave = true;
             $scope.isDisabledupdate = false;
@@ -40,13 +41,13 @@ angular.controller('LoginController', function($scope, $http) {
     };
 
     //Delete player
-    $scope.deletePlayer = function (playerModel) {
-        var varIsConf = confirm('Want to delete ' + 'Id: ' + playerModel.Id + ' ' + 'Question: ' + playerModel.LastName + '. Are you sure?');
+    $scope.deletePlayer = function (PlayerModel) {
+        var varIsConf = confirm('Want to delete ' + 'Id: ' + PlayerModel.Id + ' ' + 'LastName: ' + PlayerModel.LastName + '. Are you sure?');
         if (varIsConf) {
             $http({
                 method: 'DELETE',
-                url: 'api/PlayerModels/' + playerModel.Id,
-                data: $scope.QuizModel
+                url: 'api/PlayerModels/' + PlayerModel.Id,
+                data: $scope.PlayerModel
             }).success(function () {
                 GetAllPlayers();
                 $scope.errors = [];
@@ -61,12 +62,12 @@ angular.controller('LoginController', function($scope, $http) {
         $http({
             method: 'POST',
             url: 'api/PlayerModels/',
-            data: $scope.playerModel
+            data: $scope.PlayerModel
         }).success(function () {
             GetAllPlayers();
             $scope.isDisabledsave = false;
             $scope.isDisabledupdate = true;
-            $scope.playerModel = null;
+            $scope.PlayerModel = null;
         }).error(function () {
             alert(data.errors);
         });

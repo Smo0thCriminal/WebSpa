@@ -2,13 +2,7 @@
     <div ng-controller="ManageController" class="col-md-5">
         <form name="myform">
             <table class="table">
-                <tr>
-                    <td>Id :</td>
-                    <td>
-                        <input type="text" ng-model="QuizModel.Id" placeholder="Id" class='form-control' required />
-                    </td>
-                </tr>
-                <tr>
+               <tr>
                     <td>Question :</td>
                     <td>
                         <input type="text" ng-model="QuizModel.Question" placeholder="Question" class='form-control' required />
@@ -24,7 +18,6 @@
                     <td></td>
                     <td>
                         <input class="btn-success" type="button" value="Save" id="btnsave" ng-disabled="isDisabledsave" ng-click="myform.$valid && saveQuiz()" />
-                        <input class="btn-default" type="button" value="Update" id="btnupdate" ng-disabled="isDisabledupdate" ng-click="myform.$valid && updateQuiz()" />
                     </td>
                 </tr>
             </table>
@@ -45,7 +38,6 @@
                 <td>{{QuizModel.Question }}</td>
                 <td>{{QuizModel.MaxPoints }}</td>
                 <td>
-                    <a href="" ng-click="getQuiz(QuizModel)" title="Delete Record">Edit</a> |
                     <a href="" ng-click="deleteQuiz(QuizModel)" title="Delete Record">Delete</a>
                 </td>
             </tr>
@@ -63,14 +55,13 @@
                 <tr>
                     <td>LastName :</td>
                     <td>
-                        <input type="text" ng-model="QuizModel.LastName" placeholder="LastName" class='form-control' required />
+                        <input type="text" ng-model="PlayerModel.LastName" placeholder="LastName" class='form-control' required />
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <input type="button" value="Save" id="btnsave" ng-disabled="isDisabledsave" ng-click="loginForm.$valid && savePlayer()" />
-                        <input type="button" value="Update" id="btnupdate" ng-disabled="isDisabledupdate" ng-click="loginForm.$valid && updatePlayer()" />
+                        <input type="button" value="Save" id="btnsaveplayer" ng-disabled="isDisabledsave" ng-click="loginForm.$valid && savePlayer()" />
                     </td>
                 </tr>
             </table>
@@ -85,7 +76,6 @@
                 <td>{{PlayerModel.FirstName}}</td>
                 <td>{{PlayerModel.LastName }}</td>
                 <td>
-                    <a href="" ng-click="getPlayer(PlayerModel)" title="Delete Record">Edit</a> |
                     <a href="" ng-click="deletePlayer(PlayerModel)" title="Delete Record">Delete</a>
                 </td>
             </tr>

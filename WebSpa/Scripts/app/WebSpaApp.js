@@ -11,5 +11,5 @@
                 templateUrl: '/Scripts/app/template/Introduce.html',
                 controller: 'LoginController'
             })
-        .otherwise({ redirectTo: '/Scripts/app/template/Introduce.html' });
+        .otherwise({ redirectTo: '/' });
     });
