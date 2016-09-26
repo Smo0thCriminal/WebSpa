@@ -4,14 +4,14 @@ angular.controller('ManageController', function ($scope, $http) {
 
     GetAllData();
     $scope.isDisabledupdate = true;
-    //Get All Quiz
+
     function GetAllData() {
         $http.get('api/QuizModels').success(function (data) {
             $scope.Quiz = data;
         });
     };
 
-    //Insert Quiz
+
     $scope.saveQuiz = function () {
         $http({
             method: 'POST',
@@ -26,9 +26,8 @@ angular.controller('ManageController', function ($scope, $http) {
         GetAllData();
     };
 
-    //Delete Quiz
     $scope.deleteQuiz = function (QuizModel) {
-        //debugger
+
         var varIsConf = confirm('Want to delete ' + 'Id: '  + QuizModel.Id + ' ' + 'Question: ' + QuizModel.Question + '. Are you sure?');
         if (varIsConf) {
             $http({
@@ -44,7 +43,7 @@ angular.controller('ManageController', function ($scope, $http) {
         }
     };
 
-    //Get Quiz by id to edit
+
     $scope.getQuiz = function (QuizModel) {
         $http.get('api/QuizModels/' + QuizModel.Id)
         .success(function (data, status, headers, config) {
@@ -58,7 +57,7 @@ angular.controller('ManageController', function ($scope, $http) {
         });
     };
 
-    //Update Quiz
+
     $scope.updateQuiz = function () {
         $http({
             method: 'POST',

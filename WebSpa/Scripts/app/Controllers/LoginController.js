@@ -1,18 +1,32 @@
 ﻿'use strict';
 
-angular.controller('LoginController', function($scope, $http) {
+angular.controller('LoginController', function($scope, $http, $window) {
 
     GetAllPlayers();
     $scope.isDisabledupdate = true;
-    //get all players
+
     function GetAllPlayers() {
         $http.get('api/PlayerModels').success(function (data) {
             $scope.Player = data;
         });
     };
 
-    //create player
-    $scope.savePlayer = function() {
+    $scope.loginRedirectPlayer = function () {
+        $http({
+            method: 'POST',
+            url: 'api/PlayerModels',
+            data: $scope.PlayerModel
+        }).success(function () {
+            $window.location.href = '/Quiz';
+            GetAllPlayers();
+            $scope.PlayerModel = null;
+        }).error(function () {
+            alert(data.errors);
+        });
+        GetAllPlayers();
+    };
+
+    $scope.savePlayer = function () {
         $http({
             method: 'POST',
             url: 'api/PlayerModels',
@@ -20,13 +34,12 @@ angular.controller('LoginController', function($scope, $http) {
         }).success(function () {
             GetAllPlayers();
             $scope.PlayerModel = null;
-        }).error(function() {
+        }).error(function () {
             alert(data.errors);
         });
         GetAllPlayers();
     };
 
-    //Get player by id to edit
     $scope.getPlayer = function (PlayerModel) {
         $http.get('api/PlayerModels/' + PlayerModel.Id)
         .success(function (data, status, headers, config) {
@@ -40,7 +53,6 @@ angular.controller('LoginController', function($scope, $http) {
         });
     };
 
-    //Delete player
     $scope.deletePlayer = function (PlayerModel) {
         var varIsConf = confirm('Want to delete ' + 'Id: ' + PlayerModel.Id + ' ' + 'LastName: ' + PlayerModel.LastName + '. Are you sure?');
         if (varIsConf) {
@@ -57,7 +69,6 @@ angular.controller('LoginController', function($scope, $http) {
         }
     };
 
-    //Update player
     $scope.updatePlayer = function () {
         $http({
             method: 'POST',
