@@ -267,6 +267,7 @@
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
     <Content Include="Scripts\libs\respond.js" />
     <Content Include="Scripts\libs\respond.min.js" />
+    <Content Include="Scripts\WebSpaApp\app.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
