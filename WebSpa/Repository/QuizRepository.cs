@@ -10,9 +10,9 @@ namespace WebSpa.Repository
 {
     public class QuizRepository : IQuizRepository, IDisposable
     {
-        private readonly QuizContext _context;
+        private readonly WebSpaContext _context;
 
-        public QuizRepository(QuizContext context)
+        public QuizRepository(WebSpaContext context)
         {
             _context = context;
         }

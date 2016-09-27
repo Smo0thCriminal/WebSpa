@@ -9,23 +9,23 @@ namespace WebSpa
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                "~/Scripts/jquery-{version}.js"));
+                "~/Scripts/libs/jquery-{version}.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                "~/Scripts/modernizr-*"));
+                "~/Scripts/libs/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/Scripts/bootstrap.js",
-                "~/Scripts/respond.js"));
+                "~/Scripts/libs/bootstrap.js",
+                "~/Scripts/libs/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                "~/Scripts/angular.js",
-                "~/Scripts/angular-route.min.js",
-                "~/Scripts/angular-resource.min.js",
-                "~/Scripts/jquery-1.10.2.js",
-                "~/Scripts/bootstrap.min.js",
+                "~/Scripts/libs/angular.js",
+                "~/Scripts/libs/angular-ui-router.js",
+                "~/Scripts/libs/angular-resource.min.js",
+                "~/Scripts/libs/jquery-1.10.2.js",
+                "~/Scripts/libs/bootstrap.min.js",
                 "~/Scripts/app/WebSpaApp.js")
                 .IncludeDirectory("~/Scripts/app/Controllers/", "*.js"));
 

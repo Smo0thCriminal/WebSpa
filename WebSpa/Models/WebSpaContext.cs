@@ -6,11 +6,12 @@ using System.Web;
 
 namespace WebSpa.Models
 {
-    public class QuizContext : DbContext
+    public class WebSpaContext : DbContext
     {
-        public QuizContext() : base("name=WebSpaDb")
+        public WebSpaContext() : base("name=WebSpaDb")
         {}
 
         public DbSet<QuizModel> Quiz { get; set; }
+        public DbSet<PlayerModel> Player { get; set; } 
     }
 }

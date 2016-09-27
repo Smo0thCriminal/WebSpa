@@ -20,7 +20,7 @@ namespace WebSpa.Controllers
 
         public QuizModelsController()
         {
-            _quizRepository = new QuizRepository(new QuizContext());
+            _quizRepository = new QuizRepository(new WebSpaContext());
         }
 
         // GET: api/QuizModels

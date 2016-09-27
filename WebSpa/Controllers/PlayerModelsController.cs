@@ -20,7 +20,7 @@ namespace WebSpa.Controllers
 
         public PlayerModelsController()
         {
-            _playerRepository = new PlayerRepository(new PlayerContext());
+            _playerRepository = new PlayerRepository(new WebSpaContext());
         }
 
         // GET: api/PlayerModels

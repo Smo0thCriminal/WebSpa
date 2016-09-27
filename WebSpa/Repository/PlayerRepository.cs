@@ -9,45 +9,45 @@ namespace WebSpa.Repository
 {
     public class PlayerRepository : IPlayerRepository, IDisposable
     {
-        private readonly PlayerContext _playerContext;
+        private readonly WebSpaContext _сontext;
 
-        public PlayerRepository(PlayerContext context)
+        public PlayerRepository(WebSpaContext context)
         {
-            _playerContext = context;
+            _сontext = context;
         }
 
         public void AddPlayer(PlayerModel player)
         {
-            var temp = _playerContext.Set<PlayerModel>();
+            var temp = _сontext.Set<PlayerModel>();
             temp.Add(new PlayerModel
             {
                 FirstName = player.FirstName,
                 LastName = player.LastName
             });
-            _playerContext.SaveChanges();
+            _сontext.SaveChanges();
         }
 
         public async void DeletePlayer(int playerId)
         {
-            PlayerModel playerModel = await _playerContext.Player.FindAsync(playerId);
-            _playerContext.Player.Remove(playerModel);
-            _playerContext.SaveChanges();
+            PlayerModel playerModel = await _сontext.Player.FindAsync(playerId);
+            _сontext.Player.Remove(playerModel);
+            _сontext.SaveChanges();
         }
 
         public IEnumerable<PlayerModel> GetAllPlayers()
         {
-            return _playerContext.Player;
+            return _сontext.Player;
         }
 
         public async Task<PlayerModel> GetPlayerById(int playerId)
         {
-            PlayerModel model = await _playerContext.Player.FindAsync(playerId);
+            PlayerModel model = await _сontext.Player.FindAsync(playerId);
             return model;
         }
 
         public void Save()
         {
-            _playerContext.SaveChanges();
+            _сontext.SaveChanges();
         }
 
         public void UpdatePlayer(PlayerModel player)
@@ -62,7 +62,7 @@ namespace WebSpa.Repository
             {
                 if (disposing)
                 {
-                    _playerContext.Dispose();
+                    _сontext.Dispose();
                 }
             }
             _disposed = true;

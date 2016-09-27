@@ -17,7 +17,7 @@ angular.controller('LoginController', function($scope, $http, $window) {
             url: 'api/PlayerModels',
             data: $scope.PlayerModel
         }).success(function () {
-            $window.location.href = '/Quiz';
+            $window.location.href = '#/Quiz';
             GetAllPlayers();
             $scope.PlayerModel = null;
         }).error(function () {
