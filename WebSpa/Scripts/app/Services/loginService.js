@@ -19,11 +19,6 @@ function loginService($http) {
                 id: playerModel.Id
             }
         });
-        //$http({
-        //    method: 'DELETE',
-        //    url: 'api/PlayerModels/' + playerModel.Id,
-        //    data: playerModel.Id
-        //});
     }
 }
 

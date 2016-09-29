@@ -216,6 +216,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\Services\loginService.js" />
+    <Content Include="Scripts\app\Services\manageService.js" />
+    <Content Include="Scripts\app\template\ManageQuiz.html" />
     <Content Include="Scripts\libs\angular-ui-router.js" />
     <Content Include="Scripts\libs\angular-ui-router.min.js" />
     <Content Include="Scripts\libs\ai.0.22.9-build00167.js" />
@@ -231,7 +233,7 @@
     <Content Include="Scripts\app\Controllers\ManageController.js" />
     <Content Include="Scripts\app\Controllers\QuizController.js" />
     <Content Include="Scripts\app\template\Introduce.html" />
-    <Content Include="Scripts\app\template\ManageData.html" />
+    <Content Include="Scripts\app\template\ManagePlayers.html" />
     <Content Include="Scripts\app\template\Quiz.html" />
     <Content Include="Scripts\app\WebSpaApp.js" />
     <Content Include="Scripts\libs\bootstrap.js" />

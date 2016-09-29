@@ -75,7 +75,7 @@ namespace WebSpa.Controllers
         [ResponseType(typeof(QuizModel))]
         public IHttpActionResult PostQuizModel(QuizModel quizModel)
         {
-            if (!ModelState.IsValid)
+            if (quizModel == null)
             {
                 return BadRequest(ModelState);
             }

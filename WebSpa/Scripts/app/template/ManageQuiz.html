@@ -1,0 +1,52 @@
+﻿<div class="container">
+    <div class="col-md-5">
+        <form name="myform">
+            <table class="table">
+                <tr>
+                    <td>Question :</td>
+                    <td>
+                        <input type="text" ng-model="vm.QuizModel.Question" name="question" placeholder="Question" class='form-control' required/>
+                        <div role="alert">
+                            <span class="error" style="color: #dc143c" ng-show="myform.question.$error.required">Required!</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MaxPoints :</td>
+                    <td>
+                        <input type="text" ng-model="vm.QuizModel.MaxPoints" name="maxPoints" placeholder="MaxPoints" class='form-control' required/>
+                        <div role="alert">
+                            <span class="error" style="color: #dc143c" ng-show="myform.maxPoints.$error.required">Required!</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" value="Save" id="btnsave" ng-disabled="myform.$invalid" ng-click="myform.$valid && vm.actions.saveQuiz()" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <table>
+            <tr>
+                <th>Id</th>
+
+                <th>
+                    Question
+                </th>
+                <th>
+                    Points
+                </th>
+            </tr>
+            <tr ng-repeat="QuizModel in vm.Quiz">
+                <td>{{QuizModel.Id}}</td>
+                <td>{{QuizModel.Question }}</td>
+                <td>{{QuizModel.MaxPoints }}</td>
+                <td>
+                    <a href="" ng-click="vm.actions.deleteQuiz(QuizModel)" title="Delete Record">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

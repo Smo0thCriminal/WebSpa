@@ -1,12 +1,13 @@
 ﻿angular.module('WebSpaApp').controller('LoginController', LoginController);
 
-LoginController.$inject = ['loginService', '$http'];
+LoginController.$inject = ['loginService', '$http', '$state'];
 
-function LoginController(loginService, $http) {
+function LoginController(loginService, $http, $state) {
     var vm = this;
     vm.actions = {
         savePlayer: savePlayer,
-        deletePlayer: deletePlayer
+        deletePlayer: deletePlayer,
+        createAndLoginPlayer: createAndLoginPlayer
     }
 
     vm.playerModel = {};
@@ -18,6 +19,13 @@ function LoginController(loginService, $http) {
         $http.get('api/PlayerModels').then(function(response) {
             vm.allPlayers = response.data;
         });
+    }
+
+    function createAndLoginPlayer() {
+        loginService.savePlayer(vm.playerModel).then(function() {
+            $state.go('Quiz');
+        });
+        vm.playerModel = null;
     }
 
     function savePlayer() {

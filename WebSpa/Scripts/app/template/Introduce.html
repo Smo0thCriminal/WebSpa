@@ -2,19 +2,19 @@
     <div class="form">
         <form name="loginForm" class="loginpage">
             <input type="text" name="firstName" ng-model="vm.playerModel.FirstName" placeholder="FirstName" class='form-control' ng-minlength="3" ng-maxlength="10" required/>
-            <div role="alert">
+            <div role="alert" style="color: #dc143c">
                 <span class="error" ng-show="loginForm.firstName.$error.required">Required!</span>
                 <span class="error" ng-show="loginForm.firstName.$error.minlength">Too short!</span>
                 <span class="error" ng-show="loginForm.firstName.$error.maxlength">Too long!</span>
             </div>
-            <input type="text" name="lastName" ng-model="vm.LastName" placeholder="LastName" class='form-control' ng-minlength="3" ng-maxlength="10" required/>
-            <div role="alert">
+            <input type="text" name="lastName" ng-model="vm.playerModel.LastName" placeholder="LastName" class='form-control' ng-minlength="3" ng-maxlength="10" required/>
+            <div role="alert" style="color: #dc143c">
                 <span class="error" ng-show="loginForm.lastName.$error.required">Required!</span>
                 <span class="error" ng-show="loginForm.lastName.$error.minlength">Too short!</span>
                 <span class="error" ng-show="loginForm.lastName.$error.maxlength">Too long!</span>
             </div>
 
-            <input type="button" value="Save" id="btnsaveplayer" ng-disabled="isDisabledsave" ng-click="loginForm.$valid && vm.actions.savePlayer()" />
+            <input type="button" value="Save" id="btnsaveplayer" ng-disabled="loginForm.$invalid" ng-click="loginForm.$valid && vm.actions.createAndLoginPlayer()" />
         </form>
     </div>
 </div>

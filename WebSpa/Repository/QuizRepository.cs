@@ -34,6 +34,7 @@ namespace WebSpa.Repository
         public void AddQuiz(QuizModel quiz)
         {
             var customers = _context.Set<QuizModel>();
+            if(quiz == null) return;
             customers.Add(new QuizModel { Question = quiz.Question, MaxPoints = quiz.MaxPoints});
 
             _context.SaveChanges();
