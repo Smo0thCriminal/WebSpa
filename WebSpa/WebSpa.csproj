@@ -215,8 +215,11 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\libs\angular-cookies.js" />
+    <Content Include="Scripts\libs\angular-cookies.min.js" />
     <Content Include="Scripts\app\Services\loginService.js" />
     <Content Include="Scripts\app\Services\manageService.js" />
+    <Content Include="Scripts\app\Services\quizService.js" />
     <Content Include="Scripts\app\template\ManageQuiz.html" />
     <Content Include="Scripts\libs\angular-ui-router.js" />
     <Content Include="Scripts\libs\angular-ui-router.min.js" />
@@ -263,6 +266,7 @@
     <Content Include="Scripts\libs\angular.min.js.map" />
     <Content Include="Scripts\libs\angular-route.min.js.map" />
     <Content Include="Scripts\libs\angular-resource.min.js.map" />
+    <Content Include="Scripts\libs\angular-cookies.min.js.map" />
     <None Include="Scripts\libs\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\libs\jquery-1.10.2.js" />
     <Content Include="Scripts\libs\jquery-1.10.2.min.js" />

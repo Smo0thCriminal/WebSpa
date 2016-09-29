@@ -25,6 +25,7 @@ namespace WebSpa
                 "~/Scripts/libs/angular-ui-router.js",
                 "~/Scripts/libs/angular-route.js",
                 "~/Scripts/libs/angular-resource.min.js",
+                "~/Scripts/libs/angular-cookies.js",
                 "~/Scripts/libs/jquery-1.10.2.js",
                 "~/Scripts/libs/bootstrap.min.js",
                 "~/Scripts/app/WebSpaApp.js")

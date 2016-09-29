@@ -3,7 +3,9 @@
 table tr th {
     padding: 10px 30px;
 }
-
+[role=alert] {
+    color: red;
+}
 table tr td {
     padding: 10px 30px;
 }

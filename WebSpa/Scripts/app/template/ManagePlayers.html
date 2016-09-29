@@ -7,16 +7,16 @@
                     <td>
                         <input type="text" ng-model="vm.playerModel.FirstName" name="firstName" placeholder="FirstName" class='form-control' required/>
                         <div role="alert">
-                            <span class="error" style="color: #dc143c" ng-show="loginForm.firstName.$error.required">Required!</span>
+                            <i class="has-error" ng-show="loginForm.firstName.$error.required">Field must be filled!</i>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>LastName :</td>
                     <td>
-                        <input type="text" ng-model="vm.playerModel.LastName" name="lastName" placeholder="LastName" class='form-control' required/>
+                        <input type="text" ng-model="vm.playerModel.LastName" name="lastName" placeholder="LastName" class='form-control' required />
                         <div role="alert">
-                            <span class="error" style="color: #dc143c" ng-show="loginForm.lastName.$error.required">Required!</span>
+                            <i class="has-error" ng-show="loginForm.lastName.$error.required">Field must be filled!</i>
                         </div>
                     </td>
                 </tr>

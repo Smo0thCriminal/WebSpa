@@ -7,7 +7,7 @@
                     <td>
                         <input type="text" ng-model="vm.QuizModel.Question" name="question" placeholder="Question" class='form-control' required/>
                         <div role="alert">
-                            <span class="error" style="color: #dc143c" ng-show="myform.question.$error.required">Required!</span>
+                            <i class="has-error" ng-show="myform.question.$error.required">Field must be filled!</i>
                         </div>
                     </td>
                 </tr>
@@ -16,7 +16,7 @@
                     <td>
                         <input type="text" ng-model="vm.QuizModel.MaxPoints" name="maxPoints" placeholder="MaxPoints" class='form-control' required/>
                         <div role="alert">
-                            <span class="error" style="color: #dc143c" ng-show="myform.maxPoints.$error.required">Required!</span>
+                            <i class="has-error" ng-show="myform.maxPoints.$error.required">Field must be filled!</i>
                         </div>
                     </td>
                 </tr>
