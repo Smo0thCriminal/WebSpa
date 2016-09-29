@@ -1,5 +1,5 @@
 ﻿<div class="container">
-    <div ng-controller="ManageController" class="col-md-5">
+    <!--<div ng-controller="ManageController" class="col-md-5">
         <form name="myform">
             <table class="table">
                <tr>
@@ -42,26 +42,26 @@
                 </td>
             </tr>
         </table>
-    </div>
-    <div ng-controller="LoginController" class="col-md-5">
+    </div>-->
+    <div class="col-md-5">
         <form name="loginForm">
             <table class="table">
                 <tr>
                     <td>FirstName :</td>
                     <td>
-                        <input type="text" ng-model="PlayerModel.FirstName" placeholder="FirstName" class='form-control' required />
+                        <input type="text" ng-model="vm.playerModel.FirstName" placeholder="FirstName" class='form-control' required />
                     </td>
                 </tr>
                 <tr>
                     <td>LastName :</td>
                     <td>
-                        <input type="text" ng-model="PlayerModel.LastName" placeholder="LastName" class='form-control' required />
+                        <input type="text" ng-model="vm.playerModel.LastName" placeholder="LastName" class='form-control' required />
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <input type="button" value="Save" id="btnsaveplayer" ng-disabled="isDisabledsave" ng-click="loginForm.$valid && savePlayer()" />
+                        <input type="button" value="Save" id="btnsaveplayer" ng-disabled="isDisabledsave" ng-click="loginForm.$valid && vm.actions.savePlayer()" />
                     </td>
                 </tr>
             </table>
@@ -72,11 +72,11 @@
 
                 <th>LastName</th>
             </tr>
-            <tr ng-repeat="PlayerModel in Player">
-                <td>{{PlayerModel.FirstName}}</td>
-                <td>{{PlayerModel.LastName }}</td>
+            <tr ng-repeat="player in vm.allPlayers">
+                <td>{{player.FirstName}}</td>
+                <td>{{player.LastName}}</td>
                 <td>
-                    <a href="" ng-click="deletePlayer(PlayerModel)" title="Delete Record">Delete</a>
+                    <a href="" ng-click="vm.actions.deletePlayer(player)" title="Delete Record">Delete</a>
                 </td>
             </tr>
         </table>

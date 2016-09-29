@@ -77,7 +77,7 @@ namespace WebSpa.Controllers
         [ResponseType(typeof(PlayerModel))]
         public IHttpActionResult PostPlayerModel(PlayerModel playerModel)
         {
-            if (!ModelState.IsValid)
+            if (playerModel == null)
             {
                 return BadRequest(ModelState);
             }

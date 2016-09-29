@@ -18,6 +18,7 @@ namespace WebSpa.Repository
 
         public void AddPlayer(PlayerModel player)
         {
+            if (player == null) return;
             var temp = _сontext.Set<PlayerModel>();
             temp.Add(new PlayerModel
             {

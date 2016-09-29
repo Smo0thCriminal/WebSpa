@@ -23,11 +23,14 @@ namespace WebSpa
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/libs/angular.js",
                 "~/Scripts/libs/angular-ui-router.js",
+                "~/Scripts/libs/angular-route.js",
                 "~/Scripts/libs/angular-resource.min.js",
                 "~/Scripts/libs/jquery-1.10.2.js",
                 "~/Scripts/libs/bootstrap.min.js",
-                "~/Scripts/app/WebSpaApp.js")
-                .IncludeDirectory("~/Scripts/app/Controllers/", "*.js"));
+                "~/Scripts/app/WebSpaApp.js",
+                "~/Scripts/app/Controllers/LoginController.js")
+                //.IncludeDirectory("~/Scripts/app/Controllers/", "*.js")
+                .IncludeDirectory("~/Scripts/app/Services/", "*.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
