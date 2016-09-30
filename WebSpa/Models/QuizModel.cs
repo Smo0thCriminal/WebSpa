@@ -6,6 +6,7 @@ namespace WebSpa.Models
     {
         public int Id { get; set; }
         public string Question { get; set; }
+        public string Answer { get; set; }
         public int MaxPoints { get; set; }
     }
 }

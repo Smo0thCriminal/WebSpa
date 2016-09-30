@@ -11,6 +11,6 @@ namespace WebSpa.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int PointsPerSession { get; set; }
-        public bool TrueDeveloper { get; set; }
+        public string TrueDeveloper { get; set; }
     }
 }

@@ -1,41 +1,31 @@
 ﻿(function() {
     angular.module('WebSpaApp').controller('QuizController', QuizController);
 
-    QuizController.$inject = ['quizService', '$http'];
+    QuizController.$inject = ['quizService'];
 
-    function QuizController(quizService, $http) {
+    function QuizController(quizService) {
         var vm = this;
         vm.actions = {
-        
+            init: init
         }
 
-        vm.QuizModel = {};
         vm.Quiz = {};
+        vm.userAnswer = {};
 
         init();
 
         function init() {
-            $http.get('api/QuizModels').then(function(response) {
+            quizService.init().then(function (response) {
                 vm.Quiz = response.data;
+                vm.Quiz.Answer = {};
+                vm.userAnswer = response.data;
             });
         }
 
-        function saveQuiz() {
-            manageService.saveQuiz(vm.QuizModel).then(function() {
-                init();
+        function submit() {
+            vm.Quiz.forEach(function (item) {
+                //item.userAnswer = ;
             });
-            vm.QuizModel = null;
-        }
-
-        function deleteQuiz(quiz) {
-            init();
-            var varIsConf = confirm('Want to delete ' + 'Id: ' + quiz.Id + ' ' + 'MaxPoints: ' + quiz.MaxPoints + '. Are you sure?');
-            if (varIsConf) {
-                manageService.deleteQuiz(quiz).then(function() {
-                    init();
-                });
-            }
-            init();
         }
     }
 })();

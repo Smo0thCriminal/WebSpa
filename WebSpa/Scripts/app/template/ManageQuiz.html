@@ -11,10 +11,26 @@
                         </div>
                     </td>
                 </tr>
+
+                <tr>
+                    <td>Answer (true\false) :</td>
+
+
+                    <td>
+                        <select name="Answer"  id="singleSelect" class='form-control' ng-model="vm.QuizModel.Answer" required>
+                            <option value="">---Please select---</option>
+                            <option value="true">TRUE</option>
+                            <option value="false">FALSE</option>
+                        </select>
+                        <div role="alert">
+                            <i class="has-error" ng-show="myform.Answer.$error.required">Field must be filled!</i>
+                        </div>
+                    </td>
+                </tr>
                 <tr>
                     <td>MaxPoints :</td>
                     <td>
-                        <input type="text" ng-model="vm.QuizModel.MaxPoints" name="maxPoints" placeholder="MaxPoints" class='form-control' required/>
+                        <input type="text" ng-model="vm.QuizModel.MaxPoints" name="maxPoints" placeholder="MaxPoints" class='form-control' required />
                         <div role="alert">
                             <i class="has-error" ng-show="myform.maxPoints.$error.required">Field must be filled!</i>
                         </div>
@@ -23,7 +39,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <input type="button" value="Save" id="btnsave" ng-disabled="myform.$invalid" ng-click="myform.$valid && vm.actions.saveQuiz()" />
+                        <input type="button" value="Save" id="btnsave" ng-disabled="myform.$invalid" ng-click=" vm.actions.saveQuiz()" />
                     </td>
                 </tr>
             </table>
@@ -36,12 +52,16 @@
                     Question
                 </th>
                 <th>
+                    Answer
+                </th>
+                <th>
                     Points
                 </th>
             </tr>
             <tr ng-repeat="QuizModel in vm.Quiz">
                 <td>{{QuizModel.Id}}</td>
                 <td>{{QuizModel.Question }}</td>
+                <td>{{QuizModel.Answer }}</td>
                 <td>{{QuizModel.MaxPoints }}</td>
                 <td>
                     <a href="" ng-click="vm.actions.deleteQuiz(QuizModel)" title="Delete Record">Delete</a>

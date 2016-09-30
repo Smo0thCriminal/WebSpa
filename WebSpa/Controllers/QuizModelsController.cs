@@ -42,6 +42,30 @@ namespace WebSpa.Controllers
             return Ok(quizModel);
         }
 
+        [HttpGet]
+        [Route("api/QuizModels/rand")]
+        [ResponseType(typeof(QuizModel))]
+        public IHttpActionResult GetRandomQuiz()
+        {
+            Random rand = new Random();
+            List<QuizModel> list = new List<QuizModel>();
+            var raw = _quizRepository.GetQuizQuestions().ToList();
+            var maxId = raw.Max(x => x.Id);
+            var minId = raw.Min(x => x.Id);
+            foreach (var question in raw)
+            {
+                var randId = rand.Next(minId, maxId);
+                if (raw.Any(x => x.Id == randId))
+                {
+                    list.Add(question);
+                }
+            }
+            //if (list.Count >= 5)
+                return Ok(list);
+
+            //return StatusCode(HttpStatusCode.NoContent);
+        }
+
         // PUT: api/QuizModels/5
         [ResponseType(typeof(void))]
         [HttpPut]
@@ -65,7 +89,7 @@ namespace WebSpa.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                    return NotFound();
+                return NotFound();
             }
 
             return StatusCode(HttpStatusCode.NoContent);

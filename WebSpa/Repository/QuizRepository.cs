@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http.Results;
 using WebSpa.Models;
 
 namespace WebSpa.Repository
@@ -34,8 +35,8 @@ namespace WebSpa.Repository
         public void AddQuiz(QuizModel quiz)
         {
             var customers = _context.Set<QuizModel>();
-            if(quiz == null) return;
-            customers.Add(new QuizModel { Question = quiz.Question, MaxPoints = quiz.MaxPoints});
+            if (quiz == null) return;
+            customers.Add(new QuizModel { Question = quiz.Question, Answer = quiz.Answer, MaxPoints = quiz.MaxPoints });
 
             _context.SaveChanges();
         }
@@ -45,7 +46,7 @@ namespace WebSpa.Repository
         }
         public void UpdateQuiz(QuizModel quiz)
         {
-            
+
         }
         private bool _disposed = false;
 

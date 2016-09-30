@@ -1,9 +1,9 @@
 ﻿(function() {
     angular.module('WebSpaApp').controller('ManageController', ManageController);
 
-    ManageController.$inject = ['manageService', '$http'];
+    ManageController.$inject = ['manageService'];
 
-    function ManageController(manageService, $http) {
+    function ManageController(manageService) {
         var vm = this;
         vm.actions = {
             saveQuiz: saveQuiz,

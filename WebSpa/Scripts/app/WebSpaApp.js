@@ -21,7 +21,7 @@
                 .state('Quiz', {
                     url: '/Quiz',
                     templateUrl: '/Scripts/app/template/Quiz.html',
-                    controller: 'LoginController as vm'
+                    controller: 'QuizController as vm'
                 });
         });
 })();

@@ -11,8 +11,6 @@ namespace WebSpa.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPlayerRepository _repository;
-
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";

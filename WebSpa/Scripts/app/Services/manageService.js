@@ -4,7 +4,6 @@
     manageService.$inject = ['$http'];
 
     function manageService($http) {
-        debugger;
         var service = {
             saveQuiz: saveQuiz,
             deleteQuiz: deleteQuiz,

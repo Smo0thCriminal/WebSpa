@@ -6,8 +6,17 @@ table tr th {
 [role=alert] {
     color: red;
 }
+[role=img] {
+    width: 520px;
+    height: 382px;
+    content: url('play_a_game.jpg');
+}
 table tr td {
     padding: 10px 30px;
+}
+select {
+    border: 0;
+    width: 100%;
 }
 .login-page {
   width: 360px;

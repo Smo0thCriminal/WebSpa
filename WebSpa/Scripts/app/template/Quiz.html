@@ -1,10 +1,29 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
-
-</body>
-</html>
+﻿<div class="container">
+    <div class="col-md-5">
+        <form name="myform">
+            <table class="table">
+                <tr>Here are the questions:</tr>
+                <tr ng-repeat="QuizModel in vm.Quiz">
+                    <td>{{QuizModel.Question }}</td>
+                    <td>{{QuizModel.Answer }}</td>
+                    <td>
+                        <label>
+                            <input type="radio" ng-model="QuizModel.Answer" ng-value="'true'">
+                            true
+                        </label><br />
+                        <label>
+                            <input type="radio" ng-model="QuizModel.Answer" ng-value="'false'">
+                            false
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" value="Answer Quiz" id="btnsave" ng-disabled="myform.$invalid" ng-click="myform.$valid && vm.actions.saveQuiz()" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
