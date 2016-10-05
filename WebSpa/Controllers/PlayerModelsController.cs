@@ -42,37 +42,6 @@ namespace WebSpa.Controllers
             return Ok(playerModel);
         }
 
-        // PUT: api/PlayerModels/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutPlayerModel(int id, PlayerModel playerModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != playerModel.Id)
-            {
-                return BadRequest();
-            }
-
-            _playerRepository.UpdatePlayer(playerModel);
-
-            try
-            {
-                _playerRepository.Save();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PlayerModelExists(id))
-                {
-                    return NotFound();
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
         // POST: api/PlayerModels
         [ResponseType(typeof(PlayerModel))]
         public IHttpActionResult PostPlayerModel(PlayerModel playerModel)

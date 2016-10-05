@@ -1,31 +1,37 @@
-﻿(function() {
+﻿(function () {
     angular.module('WebSpaApp').controller('QuizController', QuizController);
 
-    QuizController.$inject = ['quizService'];
+    QuizController.$inject = ['quizService', '$cookies'];
 
-    function QuizController(quizService) {
+    function QuizController(quizService, $cookies) {
         var vm = this;
         vm.actions = {
-            init: init
+            init: init,
+            getPlayerScore: getPlayerScore
         }
 
         vm.Quiz = {};
-        vm.userAnswer = {};
+        vm.currentPlayer = {};
 
         init();
 
         function init() {
             quizService.init().then(function (response) {
                 vm.Quiz = response.data;
-                vm.Quiz.Answer = {};
-                vm.userAnswer = response.data;
+                vm.Quiz.forEach(function(item) {    
+                    item.Answer = null;
+                });
+                vm.currentPlayer = $cookies.get('currentPlayer');
             });
         }
 
-        function submit() {
-            vm.Quiz.forEach(function (item) {
-                //item.userAnswer = ;
+        function getPlayerScore() {
+            debugger;
+            quizService.getPlayerScore(vm.Quiz).then(function () {
             });
+            //vm.Quiz.forEach(function (item) {
+            //            alert(item);
+            //});
         }
     }
 })();

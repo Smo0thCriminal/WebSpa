@@ -6,6 +6,10 @@ table tr th {
 [role=alert] {
     color: red;
 }
+#helloWorld {
+    padding: 15px 15px 0 0;
+    font-size: 15px;
+}
 [role=img] {
     width: 520px;
     height: 382px;

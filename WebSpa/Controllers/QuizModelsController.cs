@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.Results;
 using WebSpa.Models;
 using WebSpa.Repository;
 
@@ -16,11 +17,13 @@ namespace WebSpa.Controllers
 {
     public class QuizModelsController : ApiController
     {
+        private readonly IPlayerRepository _playerRepository;
         private readonly IQuizRepository _quizRepository;
 
         public QuizModelsController()
         {
             _quizRepository = new QuizRepository(new WebSpaContext());
+            _playerRepository = new PlayerRepository(new WebSpaContext());
         }
 
         // GET: api/QuizModels
@@ -60,10 +63,44 @@ namespace WebSpa.Controllers
                     list.Add(question);
                 }
             }
-            //if (list.Count >= 5)
-                return Ok(list);
+            //if (list.Count >= 5)L
+            return Ok(list);
 
             //return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        [HttpPost]
+        [Route("api/QuizModels/score")]
+        //[ResponseType(typeof (QuizModel))]
+        public IHttpActionResult GetPlayerScore(List<QuizModel> model)
+        {
+            if (model == null) return BadRequest();
+
+            var raw = _quizRepository.GetQuizQuestions();
+            int totalPoints = 0;
+            string devTrue = "";
+            foreach (var rawItem in raw)
+            {
+                foreach (var modelItem in model)
+                {
+                    if (modelItem.Answer == rawItem.Answer)
+                    {
+                        totalPoints += modelItem.MaxPoints;
+                    }
+                }
+            }
+            if (totalPoints > 150)
+            {
+                devTrue = "true";
+            }
+            else
+            {
+                devTrue = "false";
+            }
+
+            _playerRepository.UpdatePlayerScore(new PlayerModel(), totalPoints, devTrue);
+
+            return Ok();
         }
 
         // PUT: api/QuizModels/5

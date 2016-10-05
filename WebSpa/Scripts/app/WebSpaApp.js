@@ -1,5 +1,5 @@
 ﻿(function() {
-    angular.module('WebSpaApp', ['ui.router'])
+    angular.module('WebSpaApp', ['ui.router', 'ngCookies'])
         .config(function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise("/");
             $stateProvider

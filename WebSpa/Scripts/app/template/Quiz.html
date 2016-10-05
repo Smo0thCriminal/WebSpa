@@ -5,14 +5,17 @@
                 <tr>Here are the questions:</tr>
                 <tr ng-repeat="QuizModel in vm.Quiz">
                     <td>{{QuizModel.Question }}</td>
-                    <td>{{QuizModel.Answer }}</td>
                     <td>
+                        <!--<label>
+                            <input type="radio" ng-model="QuizModel.Answer" value="default">
+                            default
+                        </label><br/>-->
                         <label>
-                            <input type="radio" ng-model="QuizModel.Answer" ng-value="'true'">
+                            <input type="radio" ng-model="QuizModel.Answer" value="true">
                             true
                         </label><br />
                         <label>
-                            <input type="radio" ng-model="QuizModel.Answer" ng-value="'false'">
+                            <input type="radio" ng-model="QuizModel.Answer" value="false">
                             false
                         </label>
                     </td>
@@ -20,7 +23,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <input type="button" value="Answer Quiz" id="btnsave" ng-disabled="myform.$invalid" ng-click="myform.$valid && vm.actions.saveQuiz()" />
+                        <input type="button" value="Answer Quiz" id="btnsave" ng-disabled="myform.$invalid" ng-click="myform.$valid && vm.actions.getPlayerScore()"/>
                     </td>
                 </tr>
             </table>

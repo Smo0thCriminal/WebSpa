@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Web;
 using WebSpa.Models;
@@ -51,10 +53,17 @@ namespace WebSpa.Repository
             _сontext.SaveChanges();
         }
 
-        public void UpdatePlayer(PlayerModel player)
+        public void UpdatePlayerScore(PlayerModel player, int score, string devTrue)
         {
-            
+            if (player == null) return;
+            //TODO PASS Player Cookie
+
+            var playerModels = _сontext.Player.Find(player.Id);
+            playerModels.PointsPerSession = score;
+            playerModels.TrueDeveloper = devTrue;
+            _сontext.SaveChanges();
         }
+
         private bool _disposed = false;
 
         protected virtual void Dispose(bool disposing)
