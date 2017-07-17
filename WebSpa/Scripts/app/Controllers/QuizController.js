@@ -6,7 +6,8 @@
     function QuizController(quizService) {
         var vm = this;
         vm.actions = {
-            init: init
+            init: init,
+            submit: submit
         }
 
         vm.Quiz = {};
@@ -24,8 +25,9 @@
 
         function submit() {
             vm.Quiz.forEach(function (item) {
-                //item.userAnswer = ;
+                alert(item.Answer);
             });
+            debugger;
         }
     }
 })();
