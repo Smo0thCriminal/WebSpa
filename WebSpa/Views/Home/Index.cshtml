@@ -1,25 +1,26 @@
 ﻿<!DOCTYPE html>
-<html ng-app="WebSpaApp">
+<html ng-app="WebSpaApp" ng-controller="LoginController as vm">
 <head>
     @Scripts.Render("~/bundles/angular")
     @Styles.Render("~/Content/css")
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<div class="container-fluid">
-    <div class="navbar navbar-default navbar-fixed-top">
-        <ul class="nav nav-pills">
-            <li role="presentation"><a ui-sref="Introduce">Home\debug</a></li>
-            <li role="presentation"><a ui-sref="Quiz">Quiz</a></li>
-            <li role="presentation"><a ui-sref="ManagePlayer">ManagePlayer</a></li>
-            <li role="presentation"><a ui-sref="ManageQuiz">ManageQuiz</a></li>
-        </ul>
-        @* todo: cookieStore "Hello + FirstName + LastName" *@
-    </div>
+    <div class="container-fluid">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <ul class="nav nav-pills">
+                <li role="presentation"><a ui-sref="Introduce">Home\debug</a></li>
+                <li role="presentation"><a ui-sref="Quiz">Quiz</a></li>
+                <li role="presentation"><a ui-sref="ManagePlayer">ManagePlayer</a></li>
+                <li role="presentation"><a ui-sref="ManageQuiz">ManageQuiz</a></li>
+                <li id="helloWorld" class="navbar-right">Hello, {{vm.currentPlayer}}!!!</li>
+            </ul>
+            @* todo: cookieStore "Hello + FirstName + LastName" *@
+        </div>
 
-    <div ui-view></div>
-    <ng-view></ng-view>
-</div>
+        <div ui-view></div>
+        <ng-view></ng-view>
+    </div>
 
 
 </body>

@@ -13,7 +13,7 @@ namespace WebSpa.Repository
         Task<PlayerModel> GetPlayerById(int playerId);
         void AddPlayer(PlayerModel player);
         void DeletePlayer(int playerId);
-        void UpdatePlayer(PlayerModel player);
+        void UpdatePlayerScore(PlayerModel player, int score, string devTrue);
         void Save();
     }
 }

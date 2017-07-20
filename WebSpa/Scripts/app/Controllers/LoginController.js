@@ -1,9 +1,9 @@
 ﻿(function() {
     angular.module('WebSpaApp').controller('LoginController', LoginController);
 
-    LoginController.$inject = ['loginService', '$http', '$state'];
+    LoginController.$inject = ['loginService', '$state', '$cookies'];
 
-    function LoginController(loginService, $http, $state) {
+    function LoginController(loginService, $state, $cookies) {
         var vm = this;
         vm.actions = {
             savePlayer: savePlayer,
@@ -14,20 +14,22 @@
 
         vm.playerModel = {};
         vm.allPlayers = {};
+        vm.currentPlayer = {};
 
         init();
 
         function init() {
             loginService.init().then(function(response) {
                 vm.allPlayers = response.data;
+                vm.currentPlayer = $cookies.get('currentPlayer');
             });
         }
 
         function createAndLoginPlayer() {
-            loginService.savePlayer(vm.playerModel).then(function() {
+            loginService.savePlayer(vm.playerModel).then(function () {
+                $cookies.put('currentPlayer', vm.playerModel.FirstName + ' ' + vm.playerModel.LastName);
                 $state.go('Quiz');
             });
-            vm.playerModel = null;
         }
 
         function savePlayer() {

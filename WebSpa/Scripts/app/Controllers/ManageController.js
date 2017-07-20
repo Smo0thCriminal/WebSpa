@@ -1,9 +1,9 @@
 ﻿(function() {
     angular.module('WebSpaApp').controller('ManageController', ManageController);
 
-    ManageController.$inject = ['manageService'];
+    ManageController.$inject = ['manageService', '$cookies'];
 
-    function ManageController(manageService) {
+    function ManageController(manageService, $cookies) {
         var vm = this;
         vm.actions = {
             saveQuiz: saveQuiz,
@@ -13,12 +13,14 @@
 
         vm.QuizModel = {};
         vm.Quiz = {};
+        vm.currentPlayer = {};
 
         init();
 
         function init() {
             manageService.init().then(function(response) {
                 vm.Quiz = response.data;
+                vm.currentPlayer = $cookies.get('currentPlayer');
             });
         }
 
